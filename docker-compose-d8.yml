@@ -1,0 +1,9 @@
+drupal:
+  image: drupal-tester
+  volumes:
+    - ./test_results:/var/www/html/test_results
+  environment:
+    - DRUPAL_VERSION=8.3.2
+    - MODULES_DOWNLOAD=module-version
+    - MODULES_ENABLE=module
+    - SIMPLETEST_GROUPS=module test group
