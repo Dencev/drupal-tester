@@ -2,12 +2,15 @@
 
 ## Run tests
 Build container:
+
 `docker build -t drupal-tester .`
 
 Run container:
+
 `docker-compose -f docker-compose-d{DRUPAL_VERSION}.yml up && docker-compose -f docker-compose-d{DRUPAL_VERSION}.yml down`
 
 Remove container:
+
 `docker rmi drupal-tester`
 
 Where `{DRUPAL_VERSION}` can be `7` or `8` (see `docker-compose-d7.yml` and `docker-compose-d8.yml` example files).
