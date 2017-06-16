@@ -6,6 +6,7 @@ drupal-tester:
   environment:
     - KEEP_RUNNING=no
     - DRUPAL_VERSION=7.54
-    - MODULES_DOWNLOAD=changed_fields-7.x-2.3
+    - MODULES_DOWNLOAD=changed_fields-7.x-2.x
     - MODULES_ENABLE=changed_fields
     - SIMPLETEST_GROUPS=Changed fields API
+    - SIMPLETEST_CONCURRENCY=2

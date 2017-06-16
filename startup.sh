@@ -3,6 +3,10 @@
 DRUPAL_MAJOR_VERSION=${DRUPAL_VERSION:0:1}
 TEST_RESULTS_DIRECTORY="/var/www/html/test_results"
 
+if [ -z "$SIMPLETEST_CONCURRENCY" ] ; then
+  SIMPLETEST_CONCURRENCY=1
+fi
+
 if [ -z "$KEEP_RUNNING" ] ; then
   KEEP_RUNNING="no"
 fi
@@ -79,7 +83,7 @@ done
 echo -e "\n[Running tests]\n"
 drush en -y simpletest
 chown www-data:www-data -R ${TEST_RESULTS_DIRECTORY}
-sudo -u www-data php ${SIMPLETEST_SCRIPT} --xml ${TEST_RESULTS_DIRECTORY} "${SIMPLETEST_GROUPS}"
+sudo -u www-data php ${SIMPLETEST_SCRIPT} --concurrency ${SIMPLETEST_CONCURRENCY} --xml ${TEST_RESULTS_DIRECTORY} "${SIMPLETEST_GROUPS}"
 
 # Keep container running (for debugging purposes).
 if [ "${KEEP_RUNNING}" == "yes" ] ; then
