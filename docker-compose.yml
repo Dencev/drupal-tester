@@ -1,0 +1,11 @@
+drupal-tester:
+  image: drupal-tester
+  volumes:
+    - ./test_results:/var/www/html/test_results
+    - ./custom_scripts:/var/www/html/custom_scripts
+  environment:
+    - KEEP_RUNNING=no
+    - DRUPAL_VERSION=7.54
+    - MODULES_DOWNLOAD=changed_fields-7.x-2.3
+    - MODULES_ENABLE=changed_fields
+    - SIMPLETEST_GROUPS=Changed fields API
