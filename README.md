@@ -14,14 +14,12 @@ For local usage it's more comfortable to use `docker-compose`. With this tool yo
 
 1. Build container: `docker build -t drupal-tester .`
 2. Run it: `docker-compose up && docker-compose down`
-3. Remove container: `docker rmi drupal-tester`
 
 ## Run tests (CI usage)
 If you want to run tests continuously on your CI server then most likely you will want to override some default values defined in `docker-compose.yml` file. In this case you can run container with `docker` command and specify all the variables manually.
 
 1. Build container: `docker build -t drupal-tester .`
 2. Run it: `docker run -v $(pwd)/test_results:/var/www/html/test_results -v $(pwd)/custom_scripts:/var/www/html/custom_scripts -e KEEP_RUNNING=no -e DRUPAL_VERSION=8.3.2 -e MODULES_DOWNLOAD=module-version -e MODULES_ENABLE=module -e SIMPLETEST_GROUPS=module_test_group -e SIMPLETEST_CONCURRENCY=1 drupal-tester`
-3. Remove container: `docker rmi drupal-tester`
 
 ## Available variables:
 
